@@ -1,4 +1,4 @@
-package com.digitalbanking.digitalbnaking_backend.entities;
+package com.digitalbanking.digitalbanking_backend.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 
 @Entity
 @Data

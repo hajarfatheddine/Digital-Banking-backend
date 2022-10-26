@@ -1,5 +1,5 @@
-package com.digitalbanking.digitalbnaking_backend.entities;
-import com.digitalbanking.digitalbnaking_backend.enums.OperationType;
+package com.digitalbanking.digitalbanking_backend.entities;
+import com.digitalbanking.digitalbanking_backend.enums.OperationType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

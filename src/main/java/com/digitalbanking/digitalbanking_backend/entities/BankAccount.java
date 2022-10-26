@@ -1,6 +1,6 @@
-package com.digitalbanking.digitalbnaking_backend.entities;
+package com.digitalbanking.digitalbanking_backend.entities;
 
-import com.digitalbanking.digitalbnaking_backend.enums.AccountStatus;
+import com.digitalbanking.digitalbanking_backend.enums.AccountStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

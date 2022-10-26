@@ -1,4 +1,4 @@
-package com.digitalbanking.digitalbnaking_backend.entities;
+package com.digitalbanking.digitalbanking_backend.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

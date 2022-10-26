@@ -1,4 +1,4 @@
-package com.digitalbanking.digitalbnaking_backend.enums;
+package com.digitalbanking.digitalbanking_backend.enums;
 
 public enum AccountStatus {
     CREATED, ACTIVATED, SUSPENDED

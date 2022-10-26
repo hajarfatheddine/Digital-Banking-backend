@@ -1,5 +1,6 @@
-package com.digitalbanking.digitalbnaking_backend.entities;
+package com.digitalbanking.digitalbanking_backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ public class Customer {
     private  Long id;
     private String name;
     private String Email;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "customer")
     private List<BankAccount> bankAccounts;
 }

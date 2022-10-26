@@ -1,9 +1,9 @@
-package com.digitalbanking.digitalbnaking_backend.services;
+package com.digitalbanking.digitalbanking_backend.services;
 
-import com.digitalbanking.digitalbnaking_backend.entities.BankAccount;
-import com.digitalbanking.digitalbnaking_backend.entities.CurrentAccount;
-import com.digitalbanking.digitalbnaking_backend.entities.SavingAccount;
-import com.digitalbanking.digitalbnaking_backend.repositories.BankAccountRepository;
+import com.digitalbanking.digitalbanking_backend.entities.BankAccount;
+import com.digitalbanking.digitalbanking_backend.entities.CurrentAccount;
+import com.digitalbanking.digitalbanking_backend.entities.SavingAccount;
+import com.digitalbanking.digitalbanking_backend.repositories.BankAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
