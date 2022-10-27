@@ -33,4 +33,14 @@ public class CustomerRestController {
     public CustomerDTO saveCustomer(@RequestBody CustomerDTO request){
         return customerService.saveCustomer(request);
     }
+    @PutMapping("/customers/{id}")
+    public CustomerDTO updateCustomer(@PathVariable Long id,@RequestBody CustomerDTO request){
+        request.setId(id);
+        return customerService.updateCustomer(request);
+    }
+    @DeleteMapping("/customers/{id}")
+    public void deleteCustomer(@PathVariable Long id){
+        customerService.deleteCustomer(id);
+    }
+
 }

@@ -33,6 +33,18 @@ public class CustomerServiceImpl implements CustomerService{
         Customer savedCustomer= customerRepository.save(customer);
         return bankAccountMapper.fromCustomer(savedCustomer);
     }
+
+    @Override
+    public CustomerDTO updateCustomer(CustomerDTO customerDTO) {
+        //pour logger un message on utilise log.info()
+        log.info("Updating the customer");
+        //il faut faire attention aux regles metier (l'existance du client, etc) mais dans notre cas on suppose que ces regles n'existent pas
+        Customer customer=bankAccountMapper.fromCustomerDTO(customerDTO);
+        Customer savedCustomer= customerRepository.save(customer);
+        return bankAccountMapper.fromCustomer(savedCustomer);
+    }
+
+
     @Override
     public List<CustomerDTO> ListCustomers() {
 
@@ -54,6 +66,10 @@ public class CustomerServiceImpl implements CustomerService{
         return bankAccountMapper.fromCustomer(customer);
     }
 
+    @Override
+    public void deleteCustomer(Long id) {
+        customerRepository.deleteById(id);
+    }
 
 
 }

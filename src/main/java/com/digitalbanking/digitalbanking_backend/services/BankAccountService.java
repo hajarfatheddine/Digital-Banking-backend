@@ -1,19 +1,17 @@
 package com.digitalbanking.digitalbanking_backend.services;
 
-import com.digitalbanking.digitalbanking_backend.dtos.CustomerDTO;
+import com.digitalbanking.digitalbanking_backend.dtos.BankAccountDTO;
+import com.digitalbanking.digitalbanking_backend.dtos.CurrentBankAccountDTO;
+import com.digitalbanking.digitalbanking_backend.dtos.SavingBankAccountDTO;
 import com.digitalbanking.digitalbanking_backend.entities.BankAccount;
-import com.digitalbanking.digitalbanking_backend.entities.CurrentAccount;
-import com.digitalbanking.digitalbanking_backend.entities.Customer;
-import com.digitalbanking.digitalbanking_backend.entities.SavingAccount;
-import com.digitalbanking.digitalbanking_backend.exceptions.BalanceNotSufficientException;
 import com.digitalbanking.digitalbanking_backend.exceptions.BankAccountNotFoundException;
 import com.digitalbanking.digitalbanking_backend.exceptions.CustomerNotFoundException;
 
 import java.util.List;
 
 public interface BankAccountService {
-    CurrentAccount saveCurrentAccount(double initialBalance, double overDraft, Long customerId) throws CustomerNotFoundException;
-    SavingAccount saveSavingAccount(double initialBalance, double interestRate, Long customerId) throws CustomerNotFoundException;
-    BankAccount getBankAccount(String accountId) throws BankAccountNotFoundException;
-    List<BankAccount> bankAccountList();
+    CurrentBankAccountDTO saveCurrentAccount(double initialBalance, double overDraft, Long customerId) throws CustomerNotFoundException;
+    SavingBankAccountDTO saveSavingAccount(double initialBalance, double interestRate, Long customerId) throws CustomerNotFoundException;
+    BankAccountDTO getBankAccount(String accountId) throws BankAccountNotFoundException;
+    List<BankAccountDTO> bankAccountList();
 }

@@ -1,6 +1,9 @@
 package com.digitalbanking.digitalbanking_backend;
 
+import com.digitalbanking.digitalbanking_backend.dtos.BankAccountDTO;
+import com.digitalbanking.digitalbanking_backend.dtos.CurrentBankAccountDTO;
 import com.digitalbanking.digitalbanking_backend.dtos.CustomerDTO;
+import com.digitalbanking.digitalbanking_backend.dtos.SavingBankAccountDTO;
 import com.digitalbanking.digitalbanking_backend.entities.*;
 import com.digitalbanking.digitalbanking_backend.enums.AccountStatus;
 import com.digitalbanking.digitalbanking_backend.enums.OperationType;
@@ -38,23 +41,38 @@ public class DigitalBankingBackendApplication {
                 customerDTO.setEmail(name+"@gmail.com");
                 customerService.saveCustomer(customerDTO);
             });
+
             customerService.ListCustomers().forEach(c->{
                 try {
                     bankAccountService.saveCurrentAccount(Math.random()*90000,9000,c.getId());
                     bankAccountService.saveSavingAccount(Math.random()*12000,5.5,c.getId());
-                    List<BankAccount> bankAccounts= bankAccountService.bankAccountList();
-                    for(BankAccount bankAccount:bankAccounts) {
+
+
+                } catch (CustomerNotFoundException  e) {
+                    e.getStackTrace();
+                }
+                try{
+                    List<BankAccountDTO> bankAccounts= bankAccountService.bankAccountList();
+                    for(BankAccountDTO bankAccount:bankAccounts) {
+
                         //pour chaque compte on crée un credit
                         for (int i = 0; i < 10; i++) {
-                            operationService.credit(bankAccount.getId(), Math.random() * 120000, "credit");
-                            operationService.debit(bankAccount.getId(), 1000 + Math.random() * 9000, "debit");
+                            String accountId;
+                            if (bankAccount instanceof CurrentBankAccountDTO){
+                                accountId=((CurrentBankAccountDTO)bankAccount).getId();
+                            }
+                            else {
+                                accountId=((SavingBankAccountDTO) bankAccount).getId();
+                            }
+                            operationService.credit(accountId, Math.random() * 120000, "credit");
+                            operationService.debit(accountId, 1000 + Math.random() * 9000, "debit");
 
                         }
                     }
-
-                } catch (CustomerNotFoundException | BankAccountNotFoundException | BalanceNotSufficientException e) {
+                } catch (BalanceNotSufficientException | BankAccountNotFoundException e) {
                     e.getStackTrace();
                 }
+
             });
         };
     }

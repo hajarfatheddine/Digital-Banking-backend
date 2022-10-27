@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface CustomerService {
     public CustomerDTO saveCustomer(CustomerDTO customerDTO) ;
+    public CustomerDTO updateCustomer(CustomerDTO customerDTO);
     List<CustomerDTO> ListCustomers();
     CustomerDTO customer(Long id) throws CustomerNotFoundException;
 
+    public  void deleteCustomer(Long id);
 }
